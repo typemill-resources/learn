@@ -1,0 +1,33 @@
+<div>
+    <div id="top-bar">
+    	{% if settings.themes.learn.gitlink %}
+	        <div id="top-github-link">
+	            <a class="github-link" title='' href="{{ settings.themes.learn.gitlink }}{{ item.path }}" target="blank">
+	                <i class="fas fa-code-branch"></i>
+	                <span id="top-github-link-text">Edit Page</span>
+	            </a>
+	        </div>
+	    {% endif %}
+        
+        <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span id="sidebar-toggle-span">
+                <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </span>
+            <span class="links">
+
+				<a class="highlight" href="{{ base_url }}">{{ settings.title }}</a>
+
+				{% for crumb in breadcrumb %}
+				    > 
+					{% if loop.last %}
+						{{ crumb.name }}
+					{% else %}
+						<a class="highlight" href="{{ crumb.urlRel }}">{{ crumb.name }}</a>
+					{% endif %}
+				{% endfor %}
+            </span>
+        </div>
+    </div>
+</div>

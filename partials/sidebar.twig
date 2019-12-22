@@ -1,0 +1,31 @@
+<div id="header-wrapper">
+    <div id="header" class="logo">
+      <a id="logo" href="{{ base_url }}">{{ settings.title }}</a>
+    </div>
+    
+    {% if widgets %}
+		{% for index,widget in widgets %}
+			<aside id="{{ index }}">
+				{{ widget }}					
+			</aside>
+		{% endfor %}
+	{% endif %}
+</div>
+<div class="highlightable">
+	<ul class="topics">
+	    	{% include '/partials/navigation.twig' %}	
+	</ul>
+	<section id="shortcuts">
+    	<h3>{% if true %}{{ shortcuts }}{% endif %}</h3>
+    	<ul>
+        {% for index,widget in widgets %}
+            <li>
+                <a class="padding" href="{{ url }}">{{ Name }}</a>
+            </li>
+        {% endfor %}
+       	</ul>
+    </section>
+	<section id="footer">
+		<p>Built with <a href="https://github.com/typemill/typemill"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://typemill.net">Typemill</a></p>
+	</section>
+</div>

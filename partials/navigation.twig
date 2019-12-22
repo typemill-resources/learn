@@ -1,0 +1,40 @@
+{% macro loop_over(navigation,chapnum) %}
+
+    {% import _self as macros %}
+
+    {% for element in navigation %}
+	
+		{% set depth = element.keyPathArray|length %}
+		
+        {% if element.activeParent %}
+			<li class="{{ element.elementType }} dd-item level-{{ depth }} parent" data-nav-id="{{ element.urlRel }}">
+		{% elseif element.active %}
+			<li class="{{ element.elementType }} dd-item level-{{ depth }} active" data-nav-id="{{ element.urlRel }}">
+		{% else %}
+			<li class="{{ element.elementType }} dd-item level-{{ depth }}" data-nav-id="{{ element.urlRel }}">
+		{% endif %}
+            {% if (element.elementType == 'folder') %}
+				<a href="{{ element.urlAbs }}">
+					<span>{% if chapnum %}<b>{{ element.chapter }}.</b> {% endif %}{{ element.name }}</span>
+					<i class="fa fa-check read-icon"></i>	
+				</a>
+		{% if (element.folderContent|length > 0) %}	
+                <ul>
+                    {{ macros.loop_over(element.folderContent,chapnum) }}
+                </ul>
+		{% endif %}
+            {% else %}
+				<a href="{{ element.urlAbs }}">
+					<span>{% if chapnum %}<b>{{ element.chapter }}</b> {% endif %}{{ element.name }}</span>
+					<i class="fa fa-check read-icon"></i>
+				</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endmacro %}
+
+{% import _self as macros %}
+
+
+{{ macros.loop_over(navigation,settings.themes.learn.chapnum) }}
+
