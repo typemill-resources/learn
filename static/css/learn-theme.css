@@ -247,3 +247,25 @@ figcaption h4 {
 .is-sticky #top-bar {
   box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.1); 
 }
+
+.notice1 {
+    margin: 1em 0;
+    padding: 10px 1em;
+    background-color: #ffded4;
+    border-left: 4px solid #f65a3c;	
+}
+.notice2 {
+    margin: 1em 0;
+    padding: 10px 1em;
+    background-color: #fff3d4;
+    border-left: 4px solid #f6b73c;
+}
+.notice3,
+.notice4,
+.notice5,
+.notice6 {
+    margin: 1em 0;
+    padding: 10px 1em;
+    background-color: #d4e0ff;
+    border-left: 4px solid #3c7bf6;	
+}
