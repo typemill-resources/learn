@@ -1,0 +1,23 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ metatabs.meta.title }} | {{ settings.title }}{% endblock %}
+
+{% block content %}
+
+	{% if not home %}
+	
+		{% include '/partials/breadcrumb.twig' %}
+
+	{% endif %}
+
+	{% if item.elementType == 'file' %}
+
+		{% include 'page.twig' %}
+
+	{% else %}
+
+		{% include 'chapter.twig' %}
+	
+	{% endif %}
+	
+{% endblock %}

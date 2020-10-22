@@ -1,0 +1,21 @@
+ <div id="chapter">
+ 	<div id="body-inner">
+
+	{% if (not home and settings.themes.learn.chapter) %}
+	
+		<h3 id="">{{ settings.themes.learn.chapter }} {{ item.chapter }}</h3>
+	
+	{% endif %}
+	
+	{% if content is empty %}
+	
+		<h1>{{ item.name }}</h1>
+
+	{% endif %}
+	
+	<h1>{{ title }}</h1>
+	
+	{{ content }}
+		
+	</div>
+</div>

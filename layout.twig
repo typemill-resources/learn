@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="{{ settings.language }}" class="js csstransforms3d">
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %}{% endblock %}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<meta name="description" content="{{ metatabs.meta.description }}" />
+		<meta name="author" content="{{ settings.author }}" />
+		<meta name="generator" content="TYPEMILL" />
+		<meta name="msapplication-TileColor" content="#F9F8F6" />
+		<meta name="msapplication-TileImage" content="{{ base_url }}/themes/learn/img/mstile-144x144.png" />
+
+		{% if favicon %}
+			<meta name="msapplication-TileColor" content="#F9F8F6" />
+			<meta name="msapplication-TileImage" content="{{ base_url }}/media/files/favicon-144.png" />
+			<link rel="icon" type="image/png" href="{{ base_url }}/media/files/favicon-16.png" sizes="16x16" />
+			<link rel="icon" type="image/png" href="{{ base_url }}/media/files/favicon-32.png" sizes="32x32" />
+			<link rel="apple-touch-icon" sizes="72x72" href="{{ base_url }}/media/files/favicon-72.png" />
+			<link rel="apple-touch-icon" sizes="114x114" href="{{ base_url }}/media/files/favicon-114.png" />
+			<link rel="apple-touch-icon" sizes="144x144" href="{{ base_url }}/media/files/favicon-144.png" />
+			<link rel="apple-touch-icon" sizes="180x180" href="{{ base_url }}/media/files/favicon-180.png" />
+		{% endif %}
+		
+		<link rel="canonical" href="{{ item.urlAbs }}" />
+		
+		<meta property="og:site_name" content="{{ settings.title }}">
+		<meta property="og:title" content="{{ title }}">
+		<meta property="og:description" content="{{ metatabs.meta.description }}">
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="{{ item.urlAbs }}">
+		{% if image.img_url %}
+			<meta property="og:image" content="{{ image.img_url }}">
+			<meta name="twitter:image:alt" content="{{ image.img_alt }}">
+		{% endif %}
+		<meta name="twitter:card" content="summary_large_image">
+
+
+		{% block stylesheets %}
+		    <link href="{{ base_url }}/themes/learn/static/css/nucleus.css" rel="stylesheet">
+		    <link href="{{ base_url }}/themes/learn/static/css/fontawesome-all.min.css" rel="stylesheet">
+		    <link href="{{ base_url }}/themes/learn/static/css/hybrid.css" rel="stylesheet">
+		    <link href="{{ base_url }}/themes/learn/static/css/featherlight.min.css" rel="stylesheet">
+		    <link href="{{ base_url }}/themes/learn/static/css/perfect-scrollbar.min.css" rel="stylesheet">
+		    <link href="{{ base_url }}/themes/learn/static/css/auto-complete.css" rel="stylesheet">
+		    <link href="{{ base_url }}/themes/learn/static/css/atom-one-dark-reasonable.css" rel="stylesheet">
+		    <link href="{{ base_url }}/themes/learn/static/css/theme.css" rel="stylesheet">
+		    <link href="{{ base_url }}/themes/learn/static/css/learn-theme.css" rel="stylesheet">
+			{% if settings.themes.learn.theme != "theme-standard" %}
+		    	<link href="{{ base_url }}/themes/learn/static/css/{{ settings.themes.learn.theme}}" rel="stylesheet">
+			{% endif %}
+
+			{{ assets.renderCSS() }}
+
+		    <link href="{{ base_url }}/themes/learn/static/css/theme-tm.css" rel="stylesheet">			
+			
+		{% endblock %}
+	</head>
+	<body class="" data-url="{{ item.urlAbs }}">
+		<nav id="sidebar" class="{% if true %}showVisitedLinks{% endif %}">
+			{% include 'partials/sidebar.twig' %}			
+		</nav>
+        <section id="body">
+	        <div id="overlay"></div>
+	        <div class="padding highlightable">
+	        	{% if home %}
+		        	<span id="sidebar-toggle-span">
+						<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
+					</span>
+				{% endif %}
+				{% block content %}{% endblock %}
+	        </div>
+	        <div id="navigation">
+				{% if item.prevItem or item.nextItem %}
+					{% if item.prevItem %}
+						<a class="nav nav-prev" href="{{ item.prevItem.urlRel }}" title="{{ item.prevItem.name }}"> <i class="fa fa-chevron-left"></i></a>
+					{% endif %}
+					{% if item.nextItem %}
+						<a class="nav nav-next" href="{{ item.nextItem.urlRel }}" title="{{ item.nextItem.name }}" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+					{% endif %}
+				{% endif %}
+	       	</div>
+	    </section>
+
+	    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+	      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+	    </div>
+
+		{% block javascripts %}
+
+		    <script src="{{ base_url }}/themes/learn/static/js/jquery-3.3.1.min.js"></script>
+    		<script src="{{ base_url }}/themes/learn/static/js/clipboard.min.js"></script>
+		    <script src="{{ base_url }}/themes/learn/static/js/perfect-scrollbar.min.js"></script>
+    		<script src="{{ base_url }}/themes/learn/static/js/perfect-scrollbar.jquery.min.js"></script>
+    		<script src="{{ base_url }}/themes/learn/static/js/jquery.sticky.js"></script>
+    		<script src="{{ base_url }}/themes/learn/static/js/featherlight.min.js"></script>
+		    <script src="{{ base_url }}/themes/learn/static/js/modernizr.custom-3.6.0.js"></script>
+    		<script src="{{ base_url }}/themes/learn/static/js/learn.js"></script>
+    		<script src="{{ base_url }}/themes/learn/static/js/hugo-learn.js"></script>
+
+		    <link href="{{ base_url }}/themes/learn/static/mermaid/mermaid.css" rel="stylesheet" />
+    		<script src="{{ base_url }}/themes/learn/static/mermaid/mermaid.js"></script>
+    		<script>
+        		mermaid.initialize({ startOnLoad: true });
+    		</script>
+			<script src="{{ base_url }}/system/author/js/lazy-video.js?20190602"></script>
+			<script>typemillUtilities.start();</script>
+			{{ assets.renderJS() }}
+		
+		{% endblock %}
+	</body>
+</html>

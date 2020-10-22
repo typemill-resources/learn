@@ -1,0 +1,45 @@
+name: Learn Theme
+version: 1.1.0
+description: A port of the learn theme from GRAV CMS, perfect for documentations. 
+author: GRAV
+homepage: https://getgrav.org
+licence: MIT
+paypal: https://paypal.me/typemill
+amount: 5
+
+settings:
+  chapter: Chapter
+  theme: theme-standard
+
+forms:
+  fields:
+
+    theme:
+      type: select
+      label: Theme variant
+      options:
+        theme-standard: Standard
+        theme-green: Green
+        theme-blue: Blue
+        theme-red: Red
+
+    gitlink:
+      type: url
+      label: Link to git repository
+      placeholder: https://github.com/typemill/documentation
+      help: Please add the base url to the text repository e.g. on github.
+
+    fieldset0:
+      type: fieldset
+      legend: Chapters
+      fields:
+        chapter:
+          type: text
+          label: Label for Chapter
+          placeholder: Add Label for Chapter
+          help: Keep empty if you don't want to show chapter above headline
+
+        chapnum:
+          type: checkbox
+          label: Show Chapter Numbers
+          checkboxlabel: Show chapter Numbers in navigations?

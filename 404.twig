@@ -1,0 +1,22 @@
+{% extends 'layout.twig' %}
+
+{% block title %}ERROR 404: Page not found{% endblock %}
+
+{% block content %}
+
+    <section id="body" style="margin-left:0px;">
+      <div id="overlay"></div>
+      <div id="chapter">
+        <div id="body-inner">
+			<h1>Not Found</h1>
+
+			<p>Sorry, but we did not find that page.</p>
+
+ 	        <p><a href='{{ base_url }}'>Go to homepage</a></p>
+          	<p><img src="{{ base_url }}/themes/learn/static/images/gopher-404.jpg" style="width:50%" alt="Page not found!"></p>
+        </div>
+      </div>
+
+    </section>
+	
+{% endblock %}
