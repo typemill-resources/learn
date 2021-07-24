@@ -281,25 +281,30 @@ figcaption{
 ************************/
 
 .notice1 {
-    margin: 1em 0;
-    padding: 10px 1em;
+  margin: 1em 0;
+  padding: 10px 1em;
   background-color: #ffded4;
   border-left: 4px solid #f65a3c;    
 }
 .notice2 {
-    margin: 1em 0;
-    padding: 10px 1em;
+  margin: 1em 0;
+  padding: 10px 1em;
   background-color: #fff3d4;
   border-left: 4px solid #f6b73c;    
 }
-.notice3,
+.notice3{
+  margin: 1em 0;
+  padding: 10px 1em;
+  background-color: #d4e0ff;
+  border-left: 4px solid #3c7bf6; 
+}
 .notice4,
 .notice5,
-.notice6 {
+.notice6{
     margin: 1em 0;
     padding: 10px 1em;
-    background-color: #d4e0ff;
-    border-left: 4px solid #3c7bf6; 
+    border-left: 4px solid rgba(92, 184, 92, 0.8);
+    background: #E6F9E6;
 }
 
 /************************

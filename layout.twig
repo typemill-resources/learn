@@ -47,7 +47,7 @@
 		    <link href="{{ base_url }}/themes/learn/static/css/theme.css" rel="stylesheet">
 		    <link href="{{ base_url }}/themes/learn/static/css/learn-theme.css" rel="stylesheet">
 			{% if settings.themes.learn.theme != "theme-standard" %}
-		    	<link href="{{ base_url }}/themes/learn/static/css/{{ settings.themes.learn.theme}}" rel="stylesheet">
+		    	<link href="{{ base_url }}/themes/learn/static/css/{{ settings.themes.learn.theme}}.css" rel="stylesheet">
 			{% endif %}
 
 			{{ assets.renderCSS() }}
@@ -103,7 +103,7 @@
     		<script>
         		mermaid.initialize({ startOnLoad: true });
     		</script>
-			<script src="{{ base_url }}/system/author/js/lazy-video.js?20190602"></script>
+			<script src="{{ base_url }}/system/author/js/typemillutils.js?20200418"></script>
 			<script>typemillUtilities.start();</script>
 			{{ assets.renderJS() }}
 		
